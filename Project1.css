@@ -1,3 +1,6 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
 ul{
     margin-left: auto;
     margin-right: auto;
@@ -7,10 +10,10 @@ li{
     margin-right: 20px
 }
 .bg-light {
-    background-color: #dee0e4!important;
+    background-color: #f4f4f4!important;
 }
 nav a:hover{
-    color: #3399ff !important;
+    color: #2adddd !important;
 }
 
 #searchBar{
@@ -28,3 +31,69 @@ nav a:hover{
     border-color: #3399ff;
     color: #ffffff;
 }
+
+/*//cards with categories*/
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card.hovercard .cardheader {
+    background: url("https://cdn.vox-cdn.com/thumbor/H6eo6m52WF_C5wkYClKwtG5bt9Q=/0x0:1153x865/1820x1213/filters:focal(0x0:1153x865):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/46815774/trippy_image.0.0.jpg");
+    background-size: cover;
+    height: 145px;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px;
+    vertical-align: middle;
+    font-style: bold;
+}
+#cardTitle{
+   color: #2adddd!important;
+   font-style: bold;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 20px;
+    color: #9a9a9a;
+    text-overflow: ellipsis;
+    margin:5px;
+}
+
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+.btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
