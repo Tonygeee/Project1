@@ -13,7 +13,7 @@ background-size: cover;
 .btn-danger {
     color: #fff;
     background-color: transparent;
-    border-color: #3399ff;
+    border-color: #2adddd;
 }
 
 #custom-search-form {
@@ -21,7 +21,9 @@ background-size: cover;
     margin-top: 5px;
     padding: 0;
 }
-
+.row{
+    padding: 570px 0px 0px 290px;
+}
 #custom-search-form .search-query {
     padding-right: 3px;
     padding-right: 4px \9;
@@ -52,4 +54,8 @@ background-size: cover;
 
 .search-query:focus + button {
     z-index: 3;   
+}
+input.search-query{
+    width: 550px;
+    border-color: #2adddd;
 }
