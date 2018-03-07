@@ -44,7 +44,7 @@ nav a:hover{
 }
 
 .card.hovercard1 .cardheader{
-    background: url("Assets/Images/maps.jpg");
+    background: url("Images/maps.jpg");
     background-size: cover;
     height: 145px;
 }
@@ -114,7 +114,7 @@ nav a:hover{
 }
 
 .card.hovercard5 .cardheader{
-    background: url("Assets/Images/food.jpg");
+    background: url("Images/food.jpg");
     background-size: cover;
     height: 145px;
 }
@@ -178,7 +178,7 @@ nav a:hover{
 }
 
 .card.hovercard3 .cardheader{
-    background: url("Assets/Images/housing.jpg");
+    background: url("Images/housing.jpg");
     background-size: cover;
     height: 145px;
 }
@@ -242,7 +242,7 @@ nav a:hover{
 }
 
 .card.hovercard4 .cardheader{
-    background: url("Assets/Images/events.jpg");
+    background: url("Images/events.jpg");
     background-size: cover;
     height: 145px;
 }
@@ -305,7 +305,7 @@ nav a:hover{
 }
 
 .card.hovercard6 .cardheader{
-    background: url("Assets/Images/trending.png");
+    background: url("Images/trending.png");
     background-size: cover;
     height: 145px;
 }
@@ -369,7 +369,7 @@ nav a:hover{
 }
 
 .card.hovercard2 .cardheader{
-    background: url("Assets/Images/crime.jpg");
+    background: url("Images/crime.jpg");
     background-size: cover;
 
     height: 145px;
