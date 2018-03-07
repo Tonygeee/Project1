@@ -34,7 +34,7 @@ nav a:hover{
 
 /*//cards with categories*/
 
-.card.hovercard {
+.card.hovercard1 {
     position: relative;
     padding-top: 0;
     overflow: hidden;
@@ -43,19 +43,19 @@ nav a:hover{
     background-color: #f4f4f4;
 }
 
-.card.hovercard .cardheader {
-    background: url("https://cdn.vox-cdn.com/thumbor/H6eo6m52WF_C5wkYClKwtG5bt9Q=/0x0:1153x865/1820x1213/filters:focal(0x0:1153x865):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/46815774/trippy_image.0.0.jpg");
+.card.hovercard1 .cardheader{
+    background: url("Assets/Images/maps.jpg");
     background-size: cover;
     height: 145px;
 }
 
-.card.hovercard .avatar {
+.card.hovercard1 .avatar {
     position: relative;
     top: -50px;
     margin-bottom: -50px;
 }
 
-.card.hovercard .avatar img {
+.card.hovercard1 .avatar img {
     width: 100px;
     height: 100px;
     max-width: 100px;
@@ -66,11 +66,11 @@ nav a:hover{
     border: 5px solid rgba(255,255,255,0.5);
 }
 
-.card.hovercard .info {
+.card.hovercard1 .info {
     padding: 4px 8px 10px;
 }
 
-.card.hovercard .info .title {
+.card.hovercard1 .info .title {
     font-size: 20px;
     line-height: 1;
     margin: 10px;
@@ -82,7 +82,7 @@ nav a:hover{
    font-style: bold;
 }
 
-.card.hovercard .info .desc {
+.card.hovercard1 .info .desc {
     overflow: hidden;
     font-size: 15px;
     line-height: 20px;
@@ -91,7 +91,7 @@ nav a:hover{
     margin:5px;
 }
 
-.card.hovercard .bottom {
+.card.hovercard1 .bottom {
     padding: 0 20px;
     margin-bottom: 17px;
 }
@@ -100,4 +100,324 @@ nav a:hover{
 
 #spacer{
     padding: 30px 0px 25px 0px;
+}
+
+/*////spacer////*/
+
+.card.hovercard5 {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card.hovercard5 .cardheader{
+    background: url("Assets/Images/food.jpg");
+    background-size: cover;
+    height: 145px;
+}
+
+.card.hovercard5 .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard5 .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard5 .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard5 .info .title {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px;
+    vertical-align: middle;
+    font-style: bold;
+}
+#cardTitle{
+   color: #2adddd!important;
+   font-style: bold;
+}
+
+.card.hovercard5 .info .desc {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 20px;
+    color: #9a9a9a;
+    text-overflow: ellipsis;
+    margin:5px;
+}
+
+.card.hovercard5 .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+/* SPACER */
+
+.card.hovercard3 {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card.hovercard3 .cardheader{
+    background: url("Assets/Images/housing.jpg");
+    background-size: cover;
+    height: 145px;
+}
+
+.card.hovercard3 .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard3 .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard3 .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard3 .info .title {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px;
+    vertical-align: middle;
+    font-style: bold;
+}
+#cardTitle{
+   color: #2adddd!important;
+   font-style: bold;
+}
+
+.card.hovercard3 .info .desc {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 20px;
+    color: #9a9a9a;
+    text-overflow: ellipsis;
+    margin:5px;
+}
+
+.card.hovercard3 .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+/* SPACER */
+
+.card.hovercard4 {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card.hovercard4 .cardheader{
+    background: url("Assets/Images/events.jpg");
+    background-size: cover;
+    height: 145px;
+}
+
+.card.hovercard4 .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard4 .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard4 .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard4 .info .title {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px;
+    vertical-align: middle;
+    font-style: bold;
+}
+#cardTitle{
+   color: #2adddd!important;
+   font-style: bold;
+}
+
+.card.hovercard4 .info .desc {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 20px;
+    color: #9a9a9a;
+    text-overflow: ellipsis;
+    margin:5px;
+}
+
+.card.hovercard4 .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+/* SPACER */
+
+.card.hovercard6 {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card.hovercard6 .cardheader{
+    background: url("Assets/Images/trending.png");
+    background-size: cover;
+    height: 145px;
+}
+
+.card.hovercard6 .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard6 .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard6 .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard6 .info .title {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px;
+    vertical-align: middle;
+    font-style: bold;
+}
+#cardTitle{
+   color: #2adddd!important;
+   font-style: bold;
+}
+
+.card.hovercard6 .info .desc {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 20px;
+    color: #9a9a9a;
+    text-overflow: ellipsis;
+    margin:5px;
+}
+
+.card.hovercard6 .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+/* SPACER */
+
+.card.hovercard2 {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.card.hovercard2 .cardheader{
+    background: url("Assets/Images/crime.jpg");
+    background-size: cover;
+
+    height: 145px;
+}
+
+.card.hovercard2 .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard2 .avatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard2 .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard2 .info .title {
+    font-size: 20px;
+    line-height: 1;
+    margin: 10px;
+    vertical-align: middle;
+    font-style: bold;
+}
+#cardTitle{
+   color: #2adddd!important;
+   font-style: bold;
+}
+
+.card.hovercard2 .info .desc {
+    overflow: hidden;
+    font-size: 15px;
+    line-height: 20px;
+    color: #9a9a9a;
+    text-overflow: ellipsis;
+    margin:5px;
+}
+
+.card.hovercard2 .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
 }
