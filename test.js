@@ -11,7 +11,7 @@ eventbrite: Key: V5EJ2TPSJGKB6YONZK
 */
 var city = ""; //filled with user input
 
-$("#submit-button").on("click", function (event) {
+$("#submit-button").on("click", function(event) {
   event.preventDefault();
   //grabbing value of users input
   city = $("#city-input")
@@ -34,7 +34,7 @@ function displayFoursquare() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function (response) {
+  }).then(function(response) {
     console.log(response.response.venues);
     $("#foursquare").append(response.response.venues[0].name);
     /* To append the image. NOTE: doesn't currently work. Says We dont have access.
@@ -61,10 +61,10 @@ function displayYelp() {
         "Bearer OOh_UrhHLZV11XrO0JYIM78p_s292XlDVJyjPea5fHknuURByqLe7UFo6MGt2KesAIltVL5vLonsq8j_UOLkjymV8maZsf_RZ37r",
     },
   })
-    .then(function (response) {
+    .then(function(response) {
       console.log(response);
     })
-    .catch(function (err) {
+    .catch(function(err) {
       console.error(err);
     });
 }
