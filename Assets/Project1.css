@@ -73,3 +73,7 @@ img{
 .search-query:focus + button {
     z-index: 3;   
 }
+
+.card.hovercard{
+    padding-bottom: 50px;
+}
