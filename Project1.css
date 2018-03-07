@@ -97,3 +97,7 @@ nav a:hover{
 }
 
 .btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+
+#spacer{
+    padding: 30px 0px 25px 0px;
+}
