@@ -20,8 +20,10 @@ $("#submit-button").on("click", function(event) {
   console.log("User entered: " + city);
   //Call Functions that will display information
   displayFoursquare();
-  //   displayYelp();
 });
+
+//declare global var for venueName
+var venueName = "";
 
 function displayFoursquare() {
   //city variable filled in "#submit-button on click"
@@ -29,42 +31,39 @@ function displayFoursquare() {
   var queryURL =
     "https://api.foursquare.com/v2/venues/search?near=" +
     city +
-    "&query=coffee&v=20150214&m=foursquare&client_secret=WDJWVSV5OOXGZH5UU1D5Z4TCNTF3FFNJVQSN3ABBS25243K4&client_id=ZWTX3M0CQF4A34CXDBMUFHB1I4SDJV5CYRIJ3B1HQWNJZQKI&limit=10";
+    "&query=restaurant&v=20150214&m=foursquare&client_secret=WDJWVSV5OOXGZH5UU1D5Z4TCNTF3FFNJVQSN3ABBS25243K4&client_id=ZWTX3M0CQF4A34CXDBMUFHB1I4SDJV5CYRIJ3B1HQWNJZQKI&limit=10";
 
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function(response) {
     console.log(response.response.venues);
-    $("#foursquare").append(response.response.venues[0].name);
-    /* To append the image. NOTE: doesn't currently work. Says We dont have access.
-    $("#foursquare").append(
-      "<img src='" +
-        response.response.venues[1].categories[0].icon.prefix +
-        response.response.venues[1].categories[0].icon.suffix +
-        "'>"
-    );
-    */
+    var venues = response.response.venues;
+    for (var i = 0; i < venues.length; i++) {
+      $("#foursquare").append(
+        "<p>" + response.response.venues[i].name + "</p>"
+      );
+      var venueID = response.response.venues[i].id;
+      console.log("VENUE ID " + venueID);
+      var ImgURL =
+        "https://api.foursquare.com/v2/venues/" +
+        venueID +
+        "/photos?&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180306";
+      $.ajax({
+        url: ImgURL,
+        method: "GET",
+      }).then(function(image) {
+        console.log(image.response);
+        if (image.response.photos.items.length !== 0) {
+          $("#foursquare").append(
+            "<img src=" +
+              image.response.photos.items[0].prefix +
+              "300x500" +
+              image.response.photos.items[0].suffix +
+              ">"
+          );
+        }
+      });
+    }
   });
-}
-function displayYelp() {
-  //TEST url for something to searching for. This will be changed later with user input
-  var URL =
-    "https://api.yelp.com/v3/businesses/search?term=restaurant&latitude=40.82783908257346&longitude=-74.10162448883057&client_id=LrOQ1nnyQzNiJYbVBjqJMg";
-
-  $.ajax({
-    url: URL,
-    method: "GET",
-    //headers: is to authenticate who we are instead of &API_KEY in the url above, Headers Authorization is used.
-    headers: {
-      Authorization:
-        "Bearer OOh_UrhHLZV11XrO0JYIM78p_s292XlDVJyjPea5fHknuURByqLe7UFo6MGt2KesAIltVL5vLonsq8j_UOLkjymV8maZsf_RZ37r",
-    },
-  })
-    .then(function(response) {
-      console.log(response);
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
 }
