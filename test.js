@@ -13,6 +13,9 @@ Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 */
 var placeSearch, autocomplete, city;
 
+//init Autocomplete and fillInAddress are both used for the google autocomplete. keep them together.
+//THE SEARCH BAR YOU USE IN HTML HAS TO HAVE AN ID OF "autocomplete"
+// <input id="autocomplete" placeholder="Enter a city" type="text"></input>
 function initAutocomplete() {
   // Create the autocomplete object, restricting the search to geographical
   // location types.
@@ -31,10 +34,12 @@ function fillInAddress() {
   var place = autocomplete.getPlace();
   console.log("Autocomplete information: ");
   console.log(place);
-  city = place.address_components[0].long_name;
+  city = place.formatted_address;
   console.log("User entered: " + city);
-  displayFoursquare2();
-  displayEventbrite();
+  displayEventbriteMusic();
+  displayFoursquareCoffee();
+  displayFoursquareFood();
+  weather();
 }
 
 // function geolocate() {
@@ -62,7 +67,7 @@ function fillInAddress() {
 //   displayFoursquare();
 // });
 
-function displayFoursquare2() {
+function displayFoursquareFood() {
   //city variable filled in "#submit-button on click"
   $("#foursquare").empty();
   var queryURL =
@@ -74,37 +79,130 @@ function displayFoursquare2() {
     url: queryURL,
     method: "GET",
   }).then(function(response) {
-    console.log("foursquare object: ");
+    console.log("foursquare FOOD object: ");
     console.log(response);
+    var link = "";
+    $("#foursquare").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
+      link = response.response.groups[0].items[i].tips[0].canonicalUrl;
       $("#foursquare").append(
-        "<h1> " + response.response.groups[0].items[i].venue.name + "</h1>"
+        "<h1><a target ='blank' href= " +
+          link +
+          ">" +
+          response.response.groups[0].items[i].venue.name +
+          "</a></h1>"
       );
       $("#foursquare").append(
-        "<img class = 'food-img'src = " +
+        "<a target = 'blank' href = " +
+          link +
+          "><img class = 'food-img'src = " +
           response.response.groups[0].items[i].venue.photos.groups[0].items[0]
             .prefix +
           "original" +
           response.response.groups[0].items[i].venue.photos.groups[0].items[0]
             .suffix +
-          ">"
+          "></a>"
       );
     }
   });
 }
-function displayEventbrite() {
+
+function displayFoursquareCoffee() {
+  //city variable filled in "#submit-button on click"
+  $("#foursquare").empty();
+  var queryURL =
+    "https://api.foursquare.com/v2/venues/explore?near=" +
+    city +
+    "&section=coffee&venuePhotos=1&m=foursquare&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180308&limit=10";
+  //ajax request to get name and id
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function(response) {
+    console.log("foursquare COFFEE object: ");
+    console.log(response);
+    var link = "";
+    $("#foursquare").append(link);
+    for (var i = 0; i < response.response.groups[0].items.length; i++) {
+      link = response.response.groups[0].items[i].tips[0].canonicalUrl;
+      $("#foursquare").append(
+        "<h1><a target ='blank' href= " +
+          link +
+          ">" +
+          response.response.groups[0].items[i].venue.name +
+          "</a></h1>"
+      );
+      $("#foursquare").append(
+        "<a target = 'blank' href = " +
+          link +
+          "><img class = 'food-img'src = " +
+          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+            .prefix +
+          "original" +
+          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+            .suffix +
+          "></a>"
+      );
+    }
+  });
+}
+function displayEventbriteMusic() {
   var queryURL =
     "https://www.eventbriteapi.com/v3/events/search/?location.address=" +
     city +
-    "&token=BXIHDDMOSK4ACTSU43OP";
+    "&sort_by=best&categories=103&token=BXIHDDMOSK4ACTSU43OP";
 
+  //codes: 101 is job fairs, 103 is concerts
   $.ajax({
     url: queryURL,
     method: "GET",
   }).then(function(response) {
     console.log("Evenbrite object: ");
     console.log(response);
-    $("#eventbrite").append(response.events[0].name.html);
-    $("#eventbrite").append(response.events[0].description.html);
+    for (var i = 0; i < 10; i++) {
+      var link = response.events[i].url;
+      if (response.events[i].logo.url !== 0) {
+        $("#eventbrite").append(
+          "<a target = 'blank' href = " +
+            link +
+            "><h1>" +
+            response.events[i].name.text +
+            "</h1></a>"
+        );
+        // $("#eventbrite").append(response.events[0].description.text);
+        $("#eventbrite").append(
+          "<a target = 'blank' href = " +
+            link +
+            "><img src= " +
+            response.events[i].logo.url +
+            "></a>"
+        );
+      }
+    }
+  });
+}
+function weather() {
+  $.ajax({
+    url:
+      "https://api.openweathermap.org/data/2.5/weather?" +
+      "q=" +
+      city +
+      "&units=imperial&appid=9d09809a4b038ee946dc9c53ea322c14",
+    method: "GET",
+  }).then(function(response) {
+    console.log(response);
+    console.log("Name: " + response.name);
+    console.log("Max Current Temp in this city: " + response.main.temp_max);
+    console.log("Min Current Temp in this city: " + response.main.temp_min);
+    $("#weather").append(
+      response.name +
+        "<br>" +
+        " Max Current Temp in this city: " +
+        response.main.temp_max +
+        "<br>" +
+        " Min Current Temp in this city: " +
+        response.main.temp_min +
+        "<br>"
+    );
   });
 }
