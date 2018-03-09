@@ -16,6 +16,12 @@ nav a:hover{
     color: #2adddd !important;
 }
 
+button{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
 #searchBar{
     align: right;
     list-style: none;
@@ -42,7 +48,12 @@ nav a:hover{
     text-align: center;
     background-color: #f4f4f4;
 }
-
+#dropDown{
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+}
 .card.hovercard1 .cardheader{
     background: url("Images/maps.jpg");
     background-size: cover;
