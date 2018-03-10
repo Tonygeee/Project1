@@ -24,17 +24,19 @@ Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 //   displayFoursquare();
 // });
 
-//$("#foodButton").on("click", displayFoursquareFood);
+// $("#foodButton").on("click", displayFoursquareFood);
+$( "#foodButton" ).click(function() {
+ displayFoursquareFood();
+});
 
-var city = sessionStorage.getItem("userInput")
+var city = sessionStorage.getItem("userInput");
 
 function displayFoursquareFood() {
-  $("#foodDiv").empty();
+  // $("#foodDiv").empty();
   var queryURL =
     "https://api.foursquare.com/v2/venues/explore?near=" +
     city +
     "&section=food&venuePhotos=1&m=foursquare&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180308&limit=10";
-  //ajax request to get name and id
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -46,7 +48,7 @@ function displayFoursquareFood() {
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
       $("#foodDiv").append(
-        "<h1><a target ='blank' href= " +
+        "<h1 class='heading'><a target ='blank' href= " +
           link +
           ">" +
           response.response.groups[0].items[i].venue.name +
@@ -55,7 +57,7 @@ function displayFoursquareFood() {
       $("#foodDiv").append(
         "<a target = 'blank' href = " +
           link +
-          "><img class = 'food-img'src = " +
+          "><img class = 'food-img' src = " +
           response.response.groups[0].items[i].venue.photos.groups[0].items[0]
             .prefix +
           "original" +
