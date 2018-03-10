@@ -11,50 +11,7 @@ eventbrite: Key: V5EJ2TPSJGKB6YONZK
 
 Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 */
-var placeSearch, autocomplete, city;
 
-//init Autocomplete and fillInAddress are both used for the google autocomplete. keep them together.
-//THE SEARCH BAR YOU USE IN HTML HAS TO HAVE AN ID OF "autocomplete"
-// <input id="autocomplete" placeholder="Enter a city" type="text"></input>
-function initAutocomplete() {
-  // Create the autocomplete object, restricting the search to geographical
-  // location types.
-  autocomplete = new google.maps.places.Autocomplete(
-    /** @type {!HTMLInputElement} */ (document.getElementById("autocomplete")),
-    { types: [] }
-  );
-
-  // When the user selects an address from the dropdown, populate the address
-  // fields in the form.
-  autocomplete.addListener("place_changed", fillInAddress);
-}
-
-function fillInAddress() {
-  // Get the place details from the autocomplete object.
-  var place = autocomplete.getPlace();
-  console.log("Autocomplete information: ");
-  console.log(place);
-  city = place.formatted_address;
-  console.log("User entered: " + city);
-  displayEventbriteMusic();
-  displayFoursquareCoffee();
-  displayFoursquareFood();
-  weather();
-}
-
-// function geolocate() {
-//   autocomplete.setBounds(getBounds());
-// }
-
-// navigator.geolocation.getCurrentPosition(function(position) {
-//   var geolocation = {
-//     lat: position.coords.latitude,
-//     lng: position.coords.longitude,
-//   };
-//   var circle = new google.maps.Circle({
-//     center: geolocation,
-//     radius: position.coords.accuracy,
-//   });
 
 // $("#submit-button").on("click", function(event) {
 //   event.preventDefault();
@@ -67,9 +24,12 @@ function fillInAddress() {
 //   displayFoursquare();
 // });
 
+//$("#foodButton").on("click", displayFoursquareFood);
+
+var city = sessionStorage.getItem("userInput")
+
 function displayFoursquareFood() {
-  //city variable filled in "#submit-button on click"
-  $("#foursquare").empty();
+  $("#foodDiv").empty();
   var queryURL =
     "https://api.foursquare.com/v2/venues/explore?near=" +
     city +
@@ -82,17 +42,17 @@ function displayFoursquareFood() {
     console.log("foursquare FOOD object: ");
     console.log(response);
     var link = "";
-    $("#foursquare").append(link);
+    $("#foodDiv").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
-      $("#foursquare").append(
+      $("#foodDiv").append(
         "<h1><a target ='blank' href= " +
           link +
           ">" +
           response.response.groups[0].items[i].venue.name +
           "</a></h1>"
       );
-      $("#foursquare").append(
+      $("#foodDiv").append(
         "<a target = 'blank' href = " +
           link +
           "><img class = 'food-img'src = " +
