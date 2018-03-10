@@ -28,6 +28,15 @@ Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 $( "#foodButton" ).click(function() {
  displayFoursquareFood();
 });
+$( "#musicButton" ).click(function() {
+  displayEventbriteMusic();
+ });
+ $( "#coffeeButton" ).click(function() {
+  displayFoursquareCoffee();
+ });
+ $( "#weatherButton" ).click(function() {
+  weather();
+ });
 
 var city = sessionStorage.getItem("userInput");
 
@@ -36,7 +45,7 @@ function displayFoursquareFood() {
   var queryURL =
     "https://api.foursquare.com/v2/venues/explore?near=" +
     city +
-    "&section=food&venuePhotos=1&m=foursquare&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180308&limit=10";
+    "&section=food&venuePhotos=1&m=foursquare&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180308&limit=5";
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -71,11 +80,11 @@ function displayFoursquareFood() {
 
 function displayFoursquareCoffee() {
   //city variable filled in "#submit-button on click"
-  $("#foursquare").empty();
+  $("#coffeeDiv").empty();
   var queryURL =
     "https://api.foursquare.com/v2/venues/explore?near=" +
     city +
-    "&section=coffee&venuePhotos=1&m=foursquare&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180308&limit=10";
+    "&section=coffee&venuePhotos=1&m=foursquare&oauth_token=XA4FOIKVQSHXMH32T3J2BKV0EQKYL5EZZYXYF4P3ATQYD2SN&v=20180308&limit=5";
   //ajax request to get name and id
   $.ajax({
     url: queryURL,
@@ -84,17 +93,17 @@ function displayFoursquareCoffee() {
     console.log("foursquare COFFEE object: ");
     console.log(response);
     var link = "";
-    $("#foursquare").append(link);
+    $("#coffeeDiv").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
-      $("#foursquare").append(
+      $("#coffeeDiv").append(
         "<h1><a target ='blank' href= " +
           link +
           ">" +
           response.response.groups[0].items[i].venue.name +
           "</a></h1>"
       );
-      $("#foursquare").append(
+      $("#coffeeDiv").append(
         "<a target = 'blank' href = " +
           link +
           "><img class = 'food-img'src = " +
@@ -121,10 +130,10 @@ function displayEventbriteMusic() {
   }).then(function(response) {
     console.log("Evenbrite object: ");
     console.log(response);
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 5; i++) {
       var link = response.events[i].url;
       if (response.events[i].logo.url !== 0) {
-        $("#eventbrite").append(
+        $("#musicDiv").append(
           "<a target = 'blank' href = " +
             link +
             "><h1>" +
@@ -132,7 +141,7 @@ function displayEventbriteMusic() {
             "</h1></a>"
         );
         // $("#eventbrite").append(response.events[0].description.text);
-        $("#eventbrite").append(
+        $("#musicDiv").append(
           "<a target = 'blank' href = " +
             link +
             "><img src= " +
@@ -156,7 +165,7 @@ function weather() {
     console.log("Name: " + response.name);
     console.log("Max Current Temp in this city: " + response.main.temp_max);
     console.log("Min Current Temp in this city: " + response.main.temp_min);
-    $("#weather").append(
+    $("#weatherDiv").append(
       response.name +
         "<br>" +
         " Max Current Temp in this city: " +
