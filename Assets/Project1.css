@@ -458,3 +458,6 @@ button {
   font-family: cursive;
   font-weight: lighter;
 }
+button:focus, input[type="button"]:focus {
+    outline: none;
+}
