@@ -472,3 +472,6 @@ a {
 a:hover {
     color: #2adddd;
 }
+button:focus, input[type="button"]:focus {
+    outline: none;
+}
