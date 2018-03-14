@@ -24,26 +24,33 @@ Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 // });
 
 // $("#foodButton").on("click", displayFoursquareFood);
-$("#foodButton").click(function() {
-  displayFoursquareFood();
+$( "#foodButton" ).click(function() {
+  $( "#foodDiv" ).empty();
+ displayFoursquareFood();
 });
-$("#musicButton").click(function() {
+$( "#musicButton" ).click(function() {
+  $( "#musicDiv" ).empty();
   displayEventbriteMusic();
-});
-$("#coffeeButton").click(function() {
+ });
+ $( "#coffeeButton" ).click(function() {
+  $( "#coffeeDiv" ).empty();
   displayFoursquareCoffee();
-});
-$("#weatherButton").click(function() {
+ });
+ $( "#weatherButton" ).click(function() {
+  $( "#weatherDiv" ).empty();
   weather();
-});
-$("#jobButton").click(function() {
-  jobFairs();
-});
+ });
+
+ $( "#jobButton" ).click(function() {
+  $( "#jobDiv" ).empty();
+  displayEventbriteJobs();
+ });
 
 var city = sessionStorage.getItem("userInput");
 
+$("#cityName").append(city);
+
 function displayFoursquareFood() {
-  // $("#foodDiv").empty();
   var queryURL =
     "https://api.foursquare.com/v2/venues/explore?near=" +
     city +
@@ -87,8 +94,6 @@ function displayFoursquareFood() {
 }
 
 function displayFoursquareCoffee() {
-  //city variable filled in "#submit-button on click"
-  $("#coffeeDiv").empty();
   var queryURL =
     "https://api.foursquare.com/v2/venues/explore?near=" +
     city +
@@ -104,17 +109,15 @@ function displayFoursquareCoffee() {
     $("#coffeeDiv").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
-      $("#coffeeDiv").append(
-        "<h1><a target ='blank' href= " +
-          link +
-          ">" +
-          response.response.groups[0].items[i].venue.name +
-          "</a></h1>"
-      );
+      var coffeeResults = $("<div>");
+      $("#coffeeDiv").css("background-color", "white");
+      $("#coffeeDiv").css("width", "50%" );
+      $("#coffeeDiv").css("margin-left", "auto");
+      $("#coffeeDiv").css("margin-right", "auto");
       $("#coffeeDiv").append(
         "<a target = 'blank' href = " +
           link +
-          "><img class = 'food-img'src = " +
+          "><img class = 'coffee-img'src = " +
           response.response.groups[0].items[i].venue.photos.groups[0].items[0]
             .prefix +
           "original" +
@@ -122,6 +125,14 @@ function displayFoursquareCoffee() {
             .suffix +
           "></a>"
       );
+      $("#coffeeDiv").append(
+        "<h1 class='heading'><a target ='blank' href= " +
+          link +
+          ">" +
+          response.response.groups[0].items[i].venue.name +
+          "</a></h1>"
+      );
+
     }
   });
 }
@@ -130,8 +141,6 @@ function displayEventbriteMusic() {
     "https://www.eventbriteapi.com/v3/events/search/?location.address=" +
     city +
     "&sort_by=best&categories=103&token=BXIHDDMOSK4ACTSU43OP";
-
-  //codes: 101 is job fairs, 103 is concerts
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -141,21 +150,27 @@ function displayEventbriteMusic() {
     for (var i = 0; i < 5; i++) {
       var link = response.events[i].url;
       if (response.events[i].logo.url !== 0) {
+        $("#musicDiv").css("background-color", "white");
+        $("#musicDiv").css("width", "50%");
+        $("#musicDiv").css("margin-left", "auto");
+        $("#musicDiv").css("margin-right", "auto");
+        var musicResults = $("<div>");
         $("#musicDiv").append(
           "<a target = 'blank' href = " +
             link +
-            "><h1>" +
-            response.events[i].name.text +
-            "</h1></a>"
-        );
-        // $("#eventbrite").append(response.events[0].description.text);
-        $("#musicDiv").append(
-          "<a target = 'blank' href = " +
-            link +
-            "><img src= " +
+            "><img class='music-img' src= " +
             response.events[i].logo.url +
             "></a>"
         );
+        $("#musicDiv").append(
+          "<a target = 'blank' href = " +
+            link +
+            "><h1 class='heading'>" +
+            response.events[i].name.text +
+            "</h1></a>"
+        );
+    
+       
       }
     }
   });
@@ -173,25 +188,28 @@ function weather() {
     console.log("Name: " + response.name);
     console.log("Max Current Temp in this city: " + response.main.temp_max);
     console.log("Min Current Temp in this city: " + response.main.temp_min);
+    $("#weatherDiv").css("background-color", "white");
+    $("#weatherDiv").css("width", "80%");
+    $("#weatherDiv").css("margin-left", "auto");
+    $("#weatherDiv").css("margin-right", "auto");
+    $("#weatherDiv").css("padding", "20px");
+    $("#weatherDiv").css("color", "grey");
+    $("#weatherDiv").css("font-size", "15px");
     $("#weatherDiv").html(
-      response.name +
-        "<br>" +
         " Max Current Temp in this city: " +
         response.main.temp_max +
-        "<br>" +
+        "<br><br>" +
         " Min Current Temp in this city: " +
         response.main.temp_min +
         "<br>"
     );
   });
 }
-function jobFairs() {
+function displayEventbriteJobs() {
   var queryURL =
     "https://www.eventbriteapi.com/v3/events/search/?location.address=" +
     city +
     "&sort_by=best&categories=101&token=BXIHDDMOSK4ACTSU43OP";
-
-  //codes: 101 is job fairs
   $.ajax({
     url: queryURL,
     method: "GET",
@@ -201,21 +219,24 @@ function jobFairs() {
     for (var i = 0; i < 5; i++) {
       var link = response.events[i].url;
       if (response.events[i].logo.url !== 0) {
+        $("#jobDiv").css("background-color", "white");
+        $("#jobDiv").css("width", "50%");
+        $("#jobDiv").css("margin-left", "auto");
+        $("#jobDiv").css("margin-right", "auto");
         $("#jobDiv").append(
           "<a target = 'blank' href = " +
             link +
-            "><h1>" +
-            response.events[i].name.text +
-            "</h1></a>"
-        );
-        // $("#eventbrite").append(response.events[0].description.text);
-        $("#jobDiv").append(
-          "<a target = 'blank' href = " +
-            link +
-            "><img src= " +
+            "><img class='job-img' src= " +
             response.events[i].logo.url +
             "></a>"
         );
+        $("#jobDiv").append(
+          "<a target = 'blank' href = " +
+            link +
+            "><h1 class='heading'>" +
+            response.events[i].name.text +
+            "</h1></a>"
+        );  
       }
     }
   });

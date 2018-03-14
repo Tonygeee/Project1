@@ -1,28 +1,28 @@
-body {
+body{
   font-family: Arial, Helvetica, sans-serif;
 }
-ul {
+ul{
   margin-left: auto;
   margin-right: auto;
 }
-li {
+li{
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 20px
 }
 .bg-light {
-  background-color: #f4f4f4 !important;
+  background-color: #f4f4f4!important;
 }
-nav a:hover {
+nav a:hover{
   color: #2adddd !important;
 }
 
-button {
+button{
   outline: none;
   border: none;
   background-color: transparent;
 }
 
-#searchBar {
+#searchBar{
   align: right;
   list-style: none;
 }
@@ -32,7 +32,7 @@ button {
   background-image: none;
   border-color: #3399ff;
 }
-.btn-outline-success:hover {
+.btn-outline-success:hover{
   background-color: #3399ff;
   border-color: #3399ff;
   color: #ffffff;
@@ -48,13 +48,13 @@ button {
   text-align: center;
   background-color: #f4f4f4;
 }
-#dropDown {
+#dropDown{
   position: absolute;
   z-index: 10;
   left: 0;
   right: 0;
 }
-.card.hovercard1 .cardheader {
+.card.hovercard1 .cardheader{
   background: url("Images/coffeeplace.jpg");
   background-size: cover;
   height: 145px;
@@ -74,7 +74,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(255,255,255,0.5);
 }
 
 .card.hovercard1 .info {
@@ -88,9 +88,9 @@ button {
   vertical-align: middle;
   font-style: bold;
 }
-#cardTitle {
-  color: #2adddd !important;
-  font-style: bold;
+#cardTitle{
+ color: #2adddd!important;
+ font-style: bold;
 }
 
 .card.hovercard1 .info .desc {
@@ -99,7 +99,7 @@ button {
   line-height: 20px;
   color: #9a9a9a;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin:5px;
 }
 
 .card.hovercard1 .bottom {
@@ -107,14 +107,9 @@ button {
   margin-bottom: 17px;
 }
 
-.btn {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  line-height: 18px;
-}
+.btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
 
-#spacer {
+#spacer{
   padding: 30px 0px 25px 0px;
 }
 
@@ -129,7 +124,7 @@ button {
   background-color: #f4f4f4;
 }
 
-.card.hovercard5 .cardheader {
+.card.hovercard5 .cardheader{
   background: url("Images/food.jpg");
   background-size: cover;
   height: 145px;
@@ -149,7 +144,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(255,255,255,0.5);
 }
 
 .card.hovercard5 .info {
@@ -163,9 +158,9 @@ button {
   vertical-align: middle;
   font-style: bold;
 }
-#cardTitle {
-  color: #2adddd !important;
-  font-style: bold;
+#cardTitle{
+ color: #2adddd!important;
+ font-style: bold;
 }
 
 .card.hovercard5 .info .desc {
@@ -174,7 +169,7 @@ button {
   line-height: 20px;
   color: #9a9a9a;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin:5px;
 }
 
 .card.hovercard5 .bottom {
@@ -193,7 +188,7 @@ button {
   background-color: #f4f4f4;
 }
 
-.card.hovercard3 .cardheader {
+.card.hovercard3 .cardheader{
   background: url("Images/housing.jpg");
   background-size: cover;
   height: 145px;
@@ -213,7 +208,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(255,255,255,0.5);
 }
 
 .card.hovercard3 .info {
@@ -227,9 +222,9 @@ button {
   vertical-align: middle;
   font-style: bold;
 }
-#cardTitle {
-  color: #2adddd !important;
-  font-style: bold;
+#cardTitle{
+ color: #2adddd!important;
+ font-style: bold;
 }
 
 .card.hovercard3 .info .desc {
@@ -238,7 +233,7 @@ button {
   line-height: 20px;
   color: #9a9a9a;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin:5px;
 }
 
 .card.hovercard3 .bottom {
@@ -257,7 +252,7 @@ button {
   background-color: #f4f4f4;
 }
 
-.card.hovercard4 .cardheader {
+.card.hovercard4 .cardheader{
   background: url("Images/events.jpg");
   background-size: cover;
   height: 145px;
@@ -277,7 +272,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(255,255,255,0.5);
 }
 
 .card.hovercard4 .info {
@@ -291,9 +286,9 @@ button {
   vertical-align: middle;
   font-style: bold;
 }
-#cardTitle {
-  color: #2adddd !important;
-  font-style: bold;
+#cardTitle{
+ color: #2adddd!important;
+ font-style: bold;
 }
 
 .card.hovercard4 .info .desc {
@@ -302,7 +297,7 @@ button {
   line-height: 20px;
   color: #9a9a9a;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin:5px;
 }
 
 .card.hovercard4 .bottom {
@@ -320,7 +315,7 @@ button {
   background-color: #f4f4f4;
 }
 
-.card.hovercard6 .cardheader {
+.card.hovercard6 .cardheader{
   background: url("Images/jobfair.jpg");
   background-size: cover;
   height: 145px;
@@ -340,7 +335,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(255,255,255,0.5);
 }
 
 .card.hovercard6 .info {
@@ -354,9 +349,9 @@ button {
   vertical-align: middle;
   font-style: bold;
 }
-#cardTitle {
-  color: #2adddd !important;
-  font-style: bold;
+#cardTitle{
+ color: #2adddd!important;
+ font-style: bold;
 }
 
 .card.hovercard6 .info .desc {
@@ -365,7 +360,7 @@ button {
   line-height: 20px;
   color: #9a9a9a;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin:5px;
 }
 
 .card.hovercard6 .bottom {
@@ -384,7 +379,7 @@ button {
   background-color: #f4f4f4;
 }
 
-.card.hovercard2 .cardheader {
+.card.hovercard2 .cardheader{
   background: url("Images/weatherimage.jpg");
   background-size: cover;
 
@@ -405,7 +400,7 @@ button {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  border: 5px solid rgba(255,255,255,0.5);
 }
 
 .card.hovercard2 .info {
@@ -419,9 +414,9 @@ button {
   vertical-align: middle;
   font-style: bold;
 }
-#cardTitle {
-  color: #2adddd !important;
-  font-style: bold;
+#cardTitle{
+ color: #2adddd!important;
+ font-style: bold;
 }
 
 .card.hovercard2 .info .desc {
@@ -430,34 +425,48 @@ button {
   line-height: 20px;
   color: #9a9a9a;
   text-overflow: ellipsis;
-  margin: 5px;
+  margin:5px;
 }
 
 .card.hovercard2 .bottom {
   padding: 0 20px;
   margin-bottom: 17px;
 }
-.food-img {
-  float: left;
-  width: 100px;
-  height: 80px;
-}
 
-.heading {
-  clear: both;
-  font-size: 14px;
-}
-#logo {
+#logo{
   margin-left: 20px;
   width: 60px;
   height: 60px;
 }
-#cityName {
-  margin-left: 250px;
+#cityName{
+  margin: auto;
   font-size: 36px;
-  font-family: cursive;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   font-weight: lighter;
+  color: grey;
 }
+
+.food-img,
+.coffee-img,
+.music-img,
+.job-img {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.heading {
+  font-size: 18px;
+}
+
+a {
+  color: grey;
+}
+
+a:hover {
+  color: #2adddd;
+}
+
 button:focus, input[type="button"]:focus {
-    outline: none;
+  outline: none;
 }
