@@ -56,9 +56,11 @@ function displayFoursquareFood() {
     $("#foodDiv").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
+      $("#foodDiv").css("background-color", "white");
+      $("#foodDiv").css("width", "50%" );
+      $("#foodDiv").css("margin-left", "auto");
+      $("#foodDiv").css("margin-right", "auto");
       var foodResults = $("<div>");
-      foodResults.addClass("inlineStyle");
-      $(".inlineStyle:odd").css("background-color", "blue");
       foodResults.append(
         "<a target = 'blank' href = " +
           link +
