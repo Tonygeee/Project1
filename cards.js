@@ -56,14 +56,10 @@ function displayFoursquareFood() {
     $("#foodDiv").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
-      $("#foodDiv").append(
-        "<h1 class='heading'><a target ='blank' href= " +
-          link +
-          ">" +
-          response.response.groups[0].items[i].venue.name +
-          "</a></h1>"
-      );
-      $("#foodDiv").append(
+      var foodResults = $("<div>");
+      foodResults.addClass("inlineStyle");
+      $(".inlineStyle:odd").css("background-color", "blue");
+      foodResults.append(
         "<a target = 'blank' href = " +
           link +
           "><img class = 'food-img' src = " +
@@ -74,6 +70,14 @@ function displayFoursquareFood() {
             .suffix +
           "></a>"
       );
+      foodResults.append(
+        "<h1 class='heading'><a target ='blank' href= " +
+          link +
+          ">" +
+          response.response.groups[0].items[i].venue.name +
+          "</a></h1>"
+      );
+      $("#foodDiv").append(foodResults);
     }
   });
 }
@@ -165,7 +169,7 @@ function weather() {
     console.log("Name: " + response.name);
     console.log("Max Current Temp in this city: " + response.main.temp_max);
     console.log("Min Current Temp in this city: " + response.main.temp_min);
-    $("#weatherDiv").append(
+    $("#weatherDiv").html(
       response.name +
         "<br>" +
         " Max Current Temp in this city: " +
@@ -177,3 +181,5 @@ function weather() {
     );
   });
 }
+
+
