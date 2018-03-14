@@ -432,3 +432,24 @@ button{
     padding: 0 20px;
     margin-bottom: 17px;
 }
+.food-img{
+    float: left;
+    width: 100px;
+    height: 80px;
+}
+
+.heading{
+    clear: both;
+    font-size: 14px;
+}
+#logo{
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+}
+#cityName{
+    margin-left: 250px;
+    font-size: 36px;
+    font-family: cursive; 
+    font-weight: lighter;
+}
