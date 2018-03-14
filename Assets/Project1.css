@@ -455,3 +455,23 @@ button{
 }
 
 
+.food-img {
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+}
+
+.heading {
+    font-size: 18px;
+}
+
+a {
+    color: grey;
+}
+
+a:hover {
+    color: #2adddd;
+}
+button:focus, input[type="button"]:focus {
+    outline: none;
+}
