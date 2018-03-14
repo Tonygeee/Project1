@@ -8,6 +8,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="Assets/Project1.css">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   <link rel="stylesheet" href="test.css">
 </head>
@@ -21,18 +29,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
       <li id="searchBar" class="nav-item">
-        
-
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         </form>
       </li>
-<<<<<<< HEAD
       <div id="cityName"></div>
-      <div </div>
-=======
       </div>
->>>>>>> 6868fd751245698934e251da81f01250c2239c19
   </nav>
 
   <!-- cards for categories using bootsnipp-->
@@ -49,19 +51,18 @@
           <div class="cardheader">
           </div>
           <div class="avatar">
-            <button type="button" data-toggle="collapse" data-target="#demo1">
+            <button id="coffeeButton" type="button" data-toggle="collapse" data-target="#coffeeDiv">
               <img alt="hashtag" src="Assets/Images/to-do.png">
             </button>
           </div>
-          <div id="demo1" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <div id="coffeeDiv" class="collapse">
+           <!--coffe here-->
           </div>
           <div class="info">
             <div class="title">
-              <a id="cardTitle" href="#">Things to Do</a>
+              <a id="cardTitle" href="#">Coffee</a>
             </div>
-            <div class="desc">Take a dive into city's most trending hastags </div>
+            <div class="desc">Tksjgkfjdg </div>
           </div>
         </div>
 
@@ -71,21 +72,16 @@
           <div class="cardheader">
           </div>
           <div class="avatar">
-            <button type="button" data-toggle="collapse" data-target="#demo2">
+            <button id="weatherButton" type="button" data-toggle="collapse" data-target="#weatherDiv">
               <img alt="hashtag" src="Assets/Images/crime.png">
             </button>
           </div>
-          <div id="demo" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </div>
-          <div id="demo2" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <div id="weatherDiv" class="collapse">
+            <!--weather-->
           </div>
           <div class="info">
             <div class="title">
-              <a id="cardTitle" href="#">Crime</a>
+              <a id="cardTitle" href="#">Weather</a>
             </div>
             <div class="desc">Take a dive into city's most trending hastags </div>
           </div>
@@ -123,19 +119,18 @@
           <div class="cardheader">
           </div>
           <div class="avatar">
-            <button type="button" data-toggle="collapse" data-target="#demo4">
+            <button id="musicButton" type="button" data-toggle="collapse" data-target="#musicDiv">
               <img alt="hashtag" src="Assets/Images/events.png">
             </button>
           </div>
-          <div id="demo4" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          <div id="musicDiv" class="collapse">
+           <!--music stuff goes here-->
           </div>
           <div class="info">
             <div class="title">
-              <a id="cardTitle" href="#">Events</a>
+              <a id="cardTitle" href="#">Music Events</a>
             </div>
-            <div class="desc">Take a dive into city's most trending hastags </div>
+            <div class="desc">dfkadsjfkjadsf </div>
           </div>
         </div>
       </div>
@@ -153,8 +148,7 @@
           </div>
           <div>
             <div id="foodDiv" class="collapse">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+             <!--food stuff will go in here-->
             </div>
             <div class="info">
               <div class="title">
@@ -197,22 +191,9 @@
     <!-- end container -->
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  
+<script src="cards.js"></script>
 
-  <script>
-    // $(".panel-heading").parent('.panel').hover(
-    //   function () {
-    //     $(this).children('.collapse').collapse('show');
-    //   }, function () {
-    //     $(this).children('.collapse').collapse('hide');
-    //   }
-    // );
-  </script>
 </body>
 
 </html>
