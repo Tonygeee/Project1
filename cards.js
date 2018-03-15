@@ -1,39 +1,29 @@
-//-------------------------------API KEYS----------------------------------
-/*Foursquare: Client ID: ZWTX3M0CQF4A34CXDBMUFHB1I4SDJV5CYRIJ3B1HQWNJZQKI
-            client secret: WDJWVSV5OOXGZH5UU1D5Z4TCNTF3FFNJVQSN3ABBS25243K4
-
-eventbrite: Key: V5EJ2TPSJGKB6YONZK
-            Token: U5OPJ43N24OEA7SMURRR
-
-Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
-*/
-
 //---------------------call all functions, onclick-----------------------------
-$("#foodButton").click(function () {
+$("#foodButton").click(function() {
   $("#foodDiv").empty();
   displayFoursquareFood();
 });
 
-$("#coffeeButton").click(function () {
+$("#coffeeButton").click(function() {
   $("#coffeeDiv").empty();
   displayFoursquareCoffee();
 });
 
-$("#weatherButton").click(function () {
+$("#weatherButton").click(function() {
   $("#weatherDiv").empty();
   weather();
 });
 
-$("#jobButton").click(function () {
+$("#jobButton").click(function() {
   $("#jobDiv").empty();
   displayEventbriteJobs();
 });
 
-$("#musicButton").click(function () {
+$("#musicButton").click(function() {
   $("#musicDiv").empty();
   displayEventbriteMusic();
 });
-$("#housingButton").click(function () {
+$("#housingButton").click(function() {
   $("#housingDiv").empty();
   housing();
 });
@@ -56,10 +46,11 @@ function displayFoursquareFood() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function (response) {
+  }).then(function(response) {
     console.log("foursquare FOOD object: ");
     console.log(response);
     var link = "";
+    var foodResultsTitle = $("<div>");
     $("#foodDiv").append(link);
     for (var i = 0; i < response.response.groups[0].items.length; i++) {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
@@ -70,21 +61,21 @@ function displayFoursquareFood() {
       var foodResults = $("<div>");
       foodResults.append(
         "<a target = 'blank' href = " +
-        link +
-        "><img class = 'food-img' src = " +
-        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-          .prefix +
-        "original" +
-        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-          .suffix +
-        "></a>"
+          link +
+          "><img class = 'food-img' src = " +
+          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+            .prefix +
+          "original" +
+          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+            .suffix +
+          "></a>"
       );
       foodResults.append(
         "<h1 class='heading'><a target ='blank' href= " +
-        link +
-        ">" +
-        response.response.groups[0].items[i].venue.name +
-        "</a></h1>"
+          link +
+          ">" +
+          response.response.groups[0].items[i].venue.name +
+          "</a></h1>"
       );
       $("#foodDiv").append(foodResults);
     }
@@ -100,7 +91,7 @@ function displayFoursquareCoffee() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function (response) {
+  }).then(function(response) {
     console.log("foursquare COFFEE object: ");
     console.log(response);
     var link = "";
@@ -114,21 +105,21 @@ function displayFoursquareCoffee() {
       $("#coffeeDiv").css("margin-right", "auto");
       $("#coffeeDiv").append(
         "<a target = 'blank' href = " +
-        link +
-        "><img class = 'coffee-img'src = " +
-        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-          .prefix +
-        "original" +
-        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-          .suffix +
-        "></a>"
+          link +
+          "><img class = 'coffee-img'src = " +
+          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+            .prefix +
+          "original" +
+          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+            .suffix +
+          "></a>"
       );
       $("#coffeeDiv").append(
         "<h1 class='heading'><a target ='blank' href= " +
-        link +
-        ">" +
-        response.response.groups[0].items[i].venue.name +
-        "</a></h1>"
+          link +
+          ">" +
+          response.response.groups[0].items[i].venue.name +
+          "</a></h1>"
       );
     }
   });
@@ -141,7 +132,7 @@ function displayEventbriteMusic() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function (response) {
+  }).then(function(response) {
     console.log("Evenbrite object: ");
     console.log(response);
     for (var i = 0; i < 5; i++) {
@@ -154,17 +145,17 @@ function displayEventbriteMusic() {
         var musicResults = $("<div>");
         $("#musicDiv").append(
           "<a target = 'blank' href = " +
-          link +
-          "><img class='music-img' src= " +
-          response.events[i].logo.url +
-          "></a>"
+            link +
+            "><img class='music-img' src= " +
+            response.events[i].logo.url +
+            "></a>"
         );
         $("#musicDiv").append(
           "<a target = 'blank' href = " +
-          link +
-          "><h1 class='heading'>" +
-          response.events[i].name.text +
-          "</h1></a>"
+            link +
+            "><h1 class='heading'>" +
+            response.events[i].name.text +
+            "</h1></a>"
         );
       }
     }
@@ -178,7 +169,7 @@ function weather() {
       city +
       "&units=imperial&appid=9d09809a4b038ee946dc9c53ea322c14",
     method: "GET",
-  }).then(function (response) {
+  }).then(function(response) {
     console.log(response);
     console.log("Name: " + response.name);
     console.log("Max Current Temp in this city: " + response.main.temp_max);
@@ -214,15 +205,15 @@ function weather() {
     );
     $("#weatherDiv").append(
       "Highs in " +
-      response.name +
-      ": " +
-      response.main.temp_max +
-      "<br>" +
-      "Lows in " +
-      response.name +
-      ": " +
-      response.main.temp_min +
-      "<br>"
+        response.name +
+        ": " +
+        response.main.temp_max +
+        "<br>" +
+        "Lows in " +
+        response.name +
+        ": " +
+        response.main.temp_min +
+        "<br>"
     );
   });
 }
@@ -234,7 +225,7 @@ function displayEventbriteJobs() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function (response) {
+  }).then(function(response) {
     console.log("Evenbrite object: ");
     console.log(response);
     for (var i = 0; i < 5; i++) {
@@ -246,24 +237,23 @@ function displayEventbriteJobs() {
         $("#jobDiv").css("margin-right", "auto");
         $("#jobDiv").append(
           "<a target = 'blank' href = " +
-          link +
-          "><img class='job-img' src= " +
-          response.events[i].logo.url +
-          "></a>"
+            link +
+            "><img class='job-img' src= " +
+            response.events[i].logo.url +
+            "></a>"
         );
         $("#jobDiv").append(
           "<a target = 'blank' href = " +
-          link +
-          "><h1 class='heading'>" +
-          response.events[i].name.text +
-          "</h1></a>"
+            link +
+            "><h1 class='heading'>" +
+            response.events[i].name.text +
+            "</h1></a>"
         );
       }
     }
   });
 }
 
-//input housing function
 function housing() {
   var zillowLink =
     "https://www.zillow.com/" + shortCity + "-" + state + "/home-values/";
@@ -274,16 +264,16 @@ function housing() {
   $("#housingDiv").css("margin-right", "auto");
   $("#housingDiv").append(
     "<a target = 'blank' href = '" +
-    zillowLink +
-    "'>View real estate information for " +
-    shortCity +
-    "</a><br>"
+      zillowLink +
+      "'>View real estate information for " +
+      shortCity +
+      "</a><br>"
   );
 
   $("#housingDiv").append(
     "<a target = 'blank' href = '" +
-    zillowLink +
-    "'><img class = 'zillow-img' src='Assets/images/zillow.png'></a>"
+      zillowLink +
+      "'><img class = 'zillow-img' src='Assets/images/zillow.png'></a>"
   );
 }
 
@@ -294,7 +284,7 @@ var config = {
   databaseURL: "https://project1-1520313005698.firebaseio.com",
   projectId: "project1-1520313005698",
   storageBucket: "project1-1520313005698.appspot.com",
-  messagingSenderId: "1065047897826"
+  messagingSenderId: "1065047897826",
 };
 
 firebase.initializeApp(config);
@@ -308,76 +298,61 @@ var jobCounter = 0;
 var weatherCounter = 0;
 var housingCounter = 0;
 
-
-$("#coffeeButton").on("click", function () {
+$("#coffeeButton").on("click", function() {
   coffeeCounter++;
-  database.ref().push({
-    coffee: coffeeCounter,
-    food: foodCounter,
-    music: musicCounter,
-    job: jobCounter,
-    weather: weatherCounter,
-    housing: housingCounter
-  });
+  updateDatabase();
 });
 
-$("#foodButton").on("click", function () {
+$("#foodButton").on("click", function() {
   foodCounter++;
-  database.ref().push({
-    coffee: coffeeCounter,
-    food: foodCounter,
-    music: musicCounter,
-    job: jobCounter,
-    weather: weatherCounter,
-    housing: housingCounter
-  });
+  updateDatabase();
 });
 
-$("#musicButton").on("click", function () {
+$("#musicButton").on("click", function() {
   musicCounter++;
-  database.ref().push({
-    coffee: coffeeCounter,
-    food: foodCounter,
-    music: musicCounter,
-    job: jobCounter,
-    weather: weatherCounter,
-    housing: housingCounter
-  });
+  updateDatabase();
 });
 
-$("#jobButton").on("click", function () {
+$("#jobButton").on("click", function() {
   jobCounter++;
-  database.ref().push({
-    coffee: coffeeCounter,
-    food: foodCounter,
-    music: musicCounter,
-    job: jobCounter,
-    weather: weatherCounter,
-    housing: housingCounter
-  });
+  updateDatabase();
 });
 
-$("#weatherButton").on("click", function () {
+$("#weatherButton").on("click", function() {
   weatherCounter++;
-  database.ref().push({
-    coffee: coffeeCounter,
-    food: foodCounter,
-    music: musicCounter,
-    job: jobCounter,
-    weather: weatherCounter,
-    housing: housingCounter
-  });
+  updateDatabase();
 });
 
-$("#housingButton").on("click", function () {
+$("#housingButton").on("click", function() {
   housingCounter++;
-  database.ref().push({
+  updateDatabase();
+});
+
+function updateDatabase() {
+  database.ref().set({
     coffee: coffeeCounter,
     food: foodCounter,
     music: musicCounter,
     job: jobCounter,
     weather: weatherCounter,
-    housing: housingCounter
+    housing: housingCounter,
   });
-});
+}
 
+database.ref().on(
+  "value",
+  function(snapshot) {
+    console.log(snapshot.val());
+
+    housingCounter = snapshot.val().housing;
+    weatherCounter = snapshot.val().weather;
+    jobCounter = snapshot.val().job;
+    musicCounter = snapshot.val().music;
+    foodCounter = snapshot.val().food;
+    coffeeCounter = snapshot.val().coffee;
+  },
+  function(errorObject) {
+    // In case of error this will print the error
+    console.log("The read failed: " + errorObject.code);
+  }
+);

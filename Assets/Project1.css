@@ -456,8 +456,7 @@ button {
 .music-img,
 .job-img,
 .zillow-img {
-  width: 100px;
-  height: 100px;
+  max-width: 170px;
   padding: 10px;
 }
 
