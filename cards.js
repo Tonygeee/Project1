@@ -240,54 +240,90 @@ function displayEventbriteJobs() {
 
 
 //----------------------Initialize firebase, all firebase usage------------------------
-// var config = {
-//   apiKey: "AIzaSyDq0f3RJAgCPuS9R_PjfGWJQ57Xzx9sVso",
-//   authDomain: "project1-1520313005698.firebaseapp.com",
-//   databaseURL: "https://project1-1520313005698.firebaseio.com",
-//   projectId: "project1-1520313005698",
-//   storageBucket: "project1-1520313005698.appspot.com",
-//   messagingSenderId: "1065047897826"
-// };
-// firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyDq0f3RJAgCPuS9R_PjfGWJQ57Xzx9sVso",
+  authDomain: "project1-1520313005698.firebaseapp.com",
+  databaseURL: "https://project1-1520313005698.firebaseio.com",
+  projectId: "project1-1520313005698",
+  storageBucket: "project1-1520313005698.appspot.com",
+  messagingSenderId: "1065047897826"
+};
 
-// var database = firebase.database();
+firebase.initializeApp(config);
 
-// var coffeeCounter = 0;
-// var foodCounter = 0;
-// var weatherCounter = 0;
-// var musicCounter = 0;
-// var jobCounter = 0;
-// var housingCounter = 0;
+var database = firebase.database();
 
-// $("#coffeeButton").on("click", function() {
-//   coffeeCounter++;
-//   database.ref().update({
-//     coffeeCount: coffeeCounter
-//   });
-// });
+var coffeeCounter = 0;
+var foodCounter = 0;
+var musicCounter = 0;
+var jobCounter = 0;
+var weatherCounter = 0;
+var housingCounter = 0;
 
-// $("#musicButton").on("click", function() {
-//   musicCounter++;
-//   database.ref().update({
-//     musicCount: musicCounter
-//   });
-// });
 
-// $("#foodButton").on("click", function() {
-//   foodCounter++;
-//   database.ref().update({
-//     foodCount: foodCounter
-//   });
-// });
+$("#coffeeButton").on("click", function() {
+  coffeeCounter++;
+  database.ref().push({
+    coffee: coffeeCounter,
+    food: foodCounter,
+    music: musicCounter,
+    job: jobCounter,
+    weather: weatherCounter,
+    housing: housingCounter });
+});
 
-//   database.ref().on("value", function(snapshot) {
-//     coffeeCounter = snapshot.val().coffeeCount;
-//   }); 
+$("#foodButton").on("click", function() {
+foodCounter++;
+database.ref().push({
+  coffee: coffeeCounter,
+  food: foodCounter,
+  music: musicCounter,
+  job: jobCounter,
+  weather: weatherCounter,
+  housing: housingCounter });
+});
 
-//   database.ref().on("value", function(snapshot) {
-//     musicCounter = snapshot.val().musicCount;
-//   }); 
+$("#musicButton").on("click", function() {
+  musicCounter++;
+  database.ref().push({
+    coffee: coffeeCounter,
+    food: foodCounter,
+    music: musicCounter,
+    job: jobCounter,
+    weather: weatherCounter,
+    housing: housingCounter  });
+  });
+  
+$("#jobButton").on("click", function() {
+  jobCounter++;
+  database.ref().push({
+    coffee: coffeeCounter,
+    food: foodCounter,
+    music: musicCounter,
+    job: jobCounter,
+    weather: weatherCounter,
+    housing: housingCounter  });
+  });
 
-//   database.ref().on("value", function(snapshot) {
-//     foodCounter = snapshot.val().foodCount;
-//   }); 
+$("#weatherButton").on("click", function() {
+  weatherCounter++;
+  database.ref().push({
+    coffee: coffeeCounter,
+    food: foodCounter,
+    music: musicCounter,
+    job: jobCounter,
+    weather: weatherCounter,
+    housing: housingCounter  });
+  });
+
+  $("#housingButton").on("click", function() {
+    housingCounter++;
+    database.ref().push({
+      coffee: coffeeCounter,
+      food: foodCounter,
+      music: musicCounter,
+      job: jobCounter,
+      weather: weatherCounter,
+      housing: housingCounter  });
+    });
+
