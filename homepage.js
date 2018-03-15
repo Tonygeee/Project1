@@ -1,4 +1,3 @@
-
 var autocomplete;
 //init Autocomplete and fillInAddress are both used for the google autocomplete. keep them together.
 //THE SEARCH BAR YOU USE IN HTML HAS TO HAVE AN ID OF "autocomplete"
@@ -24,6 +23,11 @@ function fillInAddress() {
   var city = place.formatted_address;
   console.log("User entered: " + city);
   sessionStorage.setItem("userInput", city);
+  //State and City used for zillow
+  var zillowCity = place.address_components[0].long_name;
+  sessionStorage.setItem("zillowCity", zillowCity);
+  var zillowState = place.address_components[2].short_name;
+  sessionStorage.setItem("zillowState", zillowState);
+
   window.location.href = "cards.html";
 }
-

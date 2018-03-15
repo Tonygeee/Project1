@@ -9,36 +9,40 @@ Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 */
 
 //---------------------call all functions, onclick-----------------------------
-$( "#foodButton" ).click(function() {
-  $( "#foodDiv" ).empty();
- displayFoursquareFood();
+$("#foodButton").click(function () {
+  $("#foodDiv").empty();
+  displayFoursquareFood();
 });
 
- $( "#coffeeButton" ).click(function() {
-  $( "#coffeeDiv" ).empty();
+$("#coffeeButton").click(function () {
+  $("#coffeeDiv").empty();
   displayFoursquareCoffee();
- });
+});
 
- $( "#weatherButton" ).click(function() {
-  $( "#weatherDiv" ).empty();
+$("#weatherButton").click(function () {
+  $("#weatherDiv").empty();
   weather();
- });
+});
 
- $( "#jobButton" ).click(function() {
-  $( "#jobDiv" ).empty();
+$("#jobButton").click(function () {
+  $("#jobDiv").empty();
   displayEventbriteJobs();
- });
+});
 
- $( "#musicButton" ).click(function() {
-  $( "#musicDiv" ).empty();
+$("#musicButton").click(function () {
+  $("#musicDiv").empty();
   displayEventbriteMusic();
- });
-
-
+});
+$("#housingButton").click(function () {
+  $("#housingDiv").empty();
+  housing();
+});
 
 //-----------------------------Global Variable-----------------------------------
 
 var city = sessionStorage.getItem("userInput");
+var shortCity = sessionStorage.getItem("zillowCity");
+var state = sessionStorage.getItem("zillowState");
 
 $("#cityName").append(city);
 
@@ -52,7 +56,7 @@ function displayFoursquareFood() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("foursquare FOOD object: ");
     console.log(response);
     var link = "";
@@ -66,21 +70,21 @@ function displayFoursquareFood() {
       var foodResults = $("<div>");
       foodResults.append(
         "<a target = 'blank' href = " +
-          link +
-          "><img class = 'food-img' src = " +
-          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-            .prefix +
-          "original" +
-          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-            .suffix +
-          "></a>"
+        link +
+        "><img class = 'food-img' src = " +
+        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+          .prefix +
+        "original" +
+        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+          .suffix +
+        "></a>"
       );
       foodResults.append(
         "<h1 class='heading'><a target ='blank' href= " +
-          link +
-          ">" +
-          response.response.groups[0].items[i].venue.name +
-          "</a></h1>"
+        link +
+        ">" +
+        response.response.groups[0].items[i].venue.name +
+        "</a></h1>"
       );
       $("#foodDiv").append(foodResults);
     }
@@ -96,7 +100,7 @@ function displayFoursquareCoffee() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("foursquare COFFEE object: ");
     console.log(response);
     var link = "";
@@ -105,28 +109,27 @@ function displayFoursquareCoffee() {
       link = response.response.groups[0].items[i].tips[0].canonicalUrl;
       var coffeeResults = $("<div>");
       $("#coffeeDiv").css("background-color", "white");
-      $("#coffeeDiv").css("width", "50%" );
+      $("#coffeeDiv").css("width", "50%");
       $("#coffeeDiv").css("margin-left", "auto");
       $("#coffeeDiv").css("margin-right", "auto");
       $("#coffeeDiv").append(
         "<a target = 'blank' href = " +
-          link +
-          "><img class = 'coffee-img'src = " +
-          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-            .prefix +
-          "original" +
-          response.response.groups[0].items[i].venue.photos.groups[0].items[0]
-            .suffix +
-          "></a>"
+        link +
+        "><img class = 'coffee-img'src = " +
+        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+          .prefix +
+        "original" +
+        response.response.groups[0].items[i].venue.photos.groups[0].items[0]
+          .suffix +
+        "></a>"
       );
       $("#coffeeDiv").append(
         "<h1 class='heading'><a target ='blank' href= " +
-          link +
-          ">" +
-          response.response.groups[0].items[i].venue.name +
-          "</a></h1>"
+        link +
+        ">" +
+        response.response.groups[0].items[i].venue.name +
+        "</a></h1>"
       );
-
     }
   });
 }
@@ -138,7 +141,7 @@ function displayEventbriteMusic() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("Evenbrite object: ");
     console.log(response);
     for (var i = 0; i < 5; i++) {
@@ -151,20 +154,18 @@ function displayEventbriteMusic() {
         var musicResults = $("<div>");
         $("#musicDiv").append(
           "<a target = 'blank' href = " +
-            link +
-            "><img class='music-img' src= " +
-            response.events[i].logo.url +
-            "></a>"
+          link +
+          "><img class='music-img' src= " +
+          response.events[i].logo.url +
+          "></a>"
         );
         $("#musicDiv").append(
           "<a target = 'blank' href = " +
-            link +
-            "><h1 class='heading'>" +
-            response.events[i].name.text +
-            "</h1></a>"
+          link +
+          "><h1 class='heading'>" +
+          response.events[i].name.text +
+          "</h1></a>"
         );
-    
-       
       }
     }
   });
@@ -177,7 +178,7 @@ function weather() {
       city +
       "&units=imperial&appid=9d09809a4b038ee946dc9c53ea322c14",
     method: "GET",
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     console.log("Name: " + response.name);
     console.log("Max Current Temp in this city: " + response.main.temp_max);
@@ -189,13 +190,39 @@ function weather() {
     $("#weatherDiv").css("padding", "20px");
     $("#weatherDiv").css("color", "grey");
     $("#weatherDiv").css("font-size", "15px");
-    $("#weatherDiv").html(
-        " Max Current Temp in this city: " +
-        response.main.temp_max +
-        "<br><br>" +
-        " Min Current Temp in this city: " +
-        response.main.temp_min +
-        "<br>"
+    if (response.weather[0].main == "Clouds") {
+      $("#weatherDiv").append(
+        "<img class='weather-icon' src='Assets/Images/Weather-cloudy.png'><br>"
+      );
+    } else if (response.weather[0].main == "Snow") {
+      $("#weatherDiv").append(
+        "<img class='weather-icon' src='Assets/Images/Weather-snow.png'><br>"
+      );
+    } else if (response.weather[0].main == "Rain") {
+      $("#weatherDiv").append(
+        "<img class='weather-icon' src='Assets/Images/Weather-rain.png'><br>"
+      );
+    } else if (response.weather[0].main == "Clear") {
+      $("#weatherDiv").append(
+        "<img class='weather-icon' src='Assets/Images/Weather-clear.png'><br>"
+      );
+    } else {
+      ("<img class='weather-icon' src='Assets/Images/Weather-misc.png'><br>");
+    }
+    $("#weatherDiv").append(
+      "<b>" + response.weather[0].description + "</b><br>"
+    );
+    $("#weatherDiv").append(
+      "Highs in " +
+      response.name +
+      ": " +
+      response.main.temp_max +
+      "<br>" +
+      "Lows in " +
+      response.name +
+      ": " +
+      response.main.temp_min +
+      "<br>"
     );
   });
 }
@@ -207,7 +234,7 @@ function displayEventbriteJobs() {
   $.ajax({
     url: queryURL,
     method: "GET",
-  }).then(function(response) {
+  }).then(function (response) {
     console.log("Evenbrite object: ");
     console.log(response);
     for (var i = 0; i < 5; i++) {
@@ -219,25 +246,46 @@ function displayEventbriteJobs() {
         $("#jobDiv").css("margin-right", "auto");
         $("#jobDiv").append(
           "<a target = 'blank' href = " +
-            link +
-            "><img class='job-img' src= " +
-            response.events[i].logo.url +
-            "></a>"
+          link +
+          "><img class='job-img' src= " +
+          response.events[i].logo.url +
+          "></a>"
         );
         $("#jobDiv").append(
           "<a target = 'blank' href = " +
-            link +
-            "><h1 class='heading'>" +
-            response.events[i].name.text +
-            "</h1></a>"
-        );  
+          link +
+          "><h1 class='heading'>" +
+          response.events[i].name.text +
+          "</h1></a>"
+        );
       }
     }
   });
 }
 
-//input housing function 
+//input housing function
+function housing() {
+  var zillowLink =
+    "https://www.zillow.com/" + shortCity + "-" + state + "/home-values/";
+  console.log(zillowLink);
+  $("#housingDiv").css("background-color", "white");
+  $("#housingDiv").css("width", "50%");
+  $("#housingDiv").css("margin-left", "auto");
+  $("#housingDiv").css("margin-right", "auto");
+  $("#housingDiv").append(
+    "<a target = 'blank' href = '" +
+    zillowLink +
+    "'>View real estate information for " +
+    shortCity +
+    "</a><br>"
+  );
 
+  $("#housingDiv").append(
+    "<a target = 'blank' href = '" +
+    zillowLink +
+    "'><img class = 'zillow-img' src='Assets/images/zillow.png'></a>"
+  );
+}
 
 //----------------------Initialize firebase, all firebase usage------------------------
 var config = {
@@ -261,7 +309,7 @@ var weatherCounter = 0;
 var housingCounter = 0;
 
 
-$("#coffeeButton").on("click", function() {
+$("#coffeeButton").on("click", function () {
   coffeeCounter++;
   database.ref().push({
     coffee: coffeeCounter,
@@ -269,21 +317,23 @@ $("#coffeeButton").on("click", function() {
     music: musicCounter,
     job: jobCounter,
     weather: weatherCounter,
-    housing: housingCounter });
+    housing: housingCounter
+  });
 });
 
-$("#foodButton").on("click", function() {
-foodCounter++;
-database.ref().push({
-  coffee: coffeeCounter,
-  food: foodCounter,
-  music: musicCounter,
-  job: jobCounter,
-  weather: weatherCounter,
-  housing: housingCounter });
+$("#foodButton").on("click", function () {
+  foodCounter++;
+  database.ref().push({
+    coffee: coffeeCounter,
+    food: foodCounter,
+    music: musicCounter,
+    job: jobCounter,
+    weather: weatherCounter,
+    housing: housingCounter
+  });
 });
 
-$("#musicButton").on("click", function() {
+$("#musicButton").on("click", function () {
   musicCounter++;
   database.ref().push({
     coffee: coffeeCounter,
@@ -291,10 +341,11 @@ $("#musicButton").on("click", function() {
     music: musicCounter,
     job: jobCounter,
     weather: weatherCounter,
-    housing: housingCounter  });
+    housing: housingCounter
   });
-  
-$("#jobButton").on("click", function() {
+});
+
+$("#jobButton").on("click", function () {
   jobCounter++;
   database.ref().push({
     coffee: coffeeCounter,
@@ -302,10 +353,11 @@ $("#jobButton").on("click", function() {
     music: musicCounter,
     job: jobCounter,
     weather: weatherCounter,
-    housing: housingCounter  });
+    housing: housingCounter
   });
+});
 
-$("#weatherButton").on("click", function() {
+$("#weatherButton").on("click", function () {
   weatherCounter++;
   database.ref().push({
     coffee: coffeeCounter,
@@ -313,17 +365,19 @@ $("#weatherButton").on("click", function() {
     music: musicCounter,
     job: jobCounter,
     weather: weatherCounter,
-    housing: housingCounter  });
+    housing: housingCounter
   });
+});
 
-  $("#housingButton").on("click", function() {
-    housingCounter++;
-    database.ref().push({
-      coffee: coffeeCounter,
-      food: foodCounter,
-      music: musicCounter,
-      job: jobCounter,
-      weather: weatherCounter,
-      housing: housingCounter  });
-    });
+$("#housingButton").on("click", function () {
+  housingCounter++;
+  database.ref().push({
+    coffee: coffeeCounter,
+    food: foodCounter,
+    music: musicCounter,
+    job: jobCounter,
+    weather: weatherCounter,
+    housing: housingCounter
+  });
+});
 
