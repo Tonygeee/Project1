@@ -1,10 +1,6 @@
-/* KEYS THAT WE NEED FOR THE APIS
-yelp: OOh_UrhHLZV11XrO0JYIM78p_s292XlDVJyjPea5fHknuURByqLe7UFo6MGt2KesAIltVL5vLonsq8j_UOLkjymV8maZsf_RZ37r
-
-Foursquare: Client ID: ZWTX3M0CQF4A34CXDBMUFHB1I4SDJV5CYRIJ3B1HQWNJZQKI
+//-------------------------------API KEYS----------------------------------
+/*Foursquare: Client ID: ZWTX3M0CQF4A34CXDBMUFHB1I4SDJV5CYRIJ3B1HQWNJZQKI
             client secret: WDJWVSV5OOXGZH5UU1D5Z4TCNTF3FFNJVQSN3ABBS25243K4
-
-twitter key: TyTpv7pvNW8efyJ2xsCckhA3O
 
 eventbrite: Key: V5EJ2TPSJGKB6YONZK
             Token: U5OPJ43N24OEA7SMURRR
@@ -12,30 +8,17 @@ eventbrite: Key: V5EJ2TPSJGKB6YONZK
 Google API Key: AIzaSyCoFPgedX41Fv_7LEYXo1QRS8SL2cIjj3Y
 */
 
-// $("#submit-button").on("click", function(event) {
-//   event.preventDefault();
-//   //grabbing value of users input
-//   city = $("#city-input")
-//     .val()
-//     .trim();
-//   console.log("User entered: " + city);
-//   //Call Function/s that will display information
-//   displayFoursquare();
-// });
-
-// $("#foodButton").on("click", displayFoursquareFood);
+//---------------------call all functions, onclick-----------------------------
 $( "#foodButton" ).click(function() {
   $( "#foodDiv" ).empty();
  displayFoursquareFood();
 });
-$( "#musicButton" ).click(function() {
-  $( "#musicDiv" ).empty();
-  displayEventbriteMusic();
- });
+
  $( "#coffeeButton" ).click(function() {
   $( "#coffeeDiv" ).empty();
   displayFoursquareCoffee();
  });
+
  $( "#weatherButton" ).click(function() {
   $( "#weatherDiv" ).empty();
   weather();
@@ -46,9 +29,18 @@ $( "#musicButton" ).click(function() {
   displayEventbriteJobs();
  });
 
-var city = sessionStorage.getItem("userInput");
+ $( "#musicButton" ).click(function() {
+  $( "#musicDiv" ).empty();
+  displayEventbriteMusic();
+ });
 
 $("#cityName").append(city);
+
+//-----------------------------Global Variable-----------------------------------
+
+var city = sessionStorage.getItem("userInput");
+
+//--------------------------------functions-------------------------------------
 
 function displayFoursquareFood() {
   var queryURL =
@@ -241,3 +233,61 @@ function displayEventbriteJobs() {
     }
   });
 }
+
+//input housing function 
+
+
+//----------------------Initialize firebase, all firebase usage------------------------
+// var config = {
+//   apiKey: "AIzaSyDq0f3RJAgCPuS9R_PjfGWJQ57Xzx9sVso",
+//   authDomain: "project1-1520313005698.firebaseapp.com",
+//   databaseURL: "https://project1-1520313005698.firebaseio.com",
+//   projectId: "project1-1520313005698",
+//   storageBucket: "project1-1520313005698.appspot.com",
+//   messagingSenderId: "1065047897826"
+// };
+// firebase.initializeApp(config);
+
+// var database = firebase.database();
+
+// var coffeeCounter = 0;
+// var foodCounter = 0;
+// var weatherCounter = 0;
+// var musicCounter = 0;
+// var jobCounter = 0;
+// var housingCounter = 0;
+
+// $("#coffeeButton").on("click", function() {
+//   coffeeCounter++;
+//   database.ref().update({
+//     coffeeCount: coffeeCounter
+//   });
+// });
+
+// $("#musicButton").on("click", function() {
+//   musicCounter++;
+//   database.ref().update({
+//     musicCount: musicCounter
+//   });
+// });
+
+// $("#foodButton").on("click", function() {
+//   foodCounter++;
+//   database.ref().update({
+//     foodCount: foodCounter
+//   });
+// });
+
+//   database.ref().on("value", function(snapshot) {
+//     coffeeCounter = snapshot.val().coffeeCount;
+//   }); 
+
+//   database.ref().on("value", function(snapshot) {
+//     musicCounter = snapshot.val().musicCount;
+//   }); 
+
+//   database.ref().on("value", function(snapshot) {
+//     foodCounter = snapshot.val().foodCount;
+//   }); 
+
+
