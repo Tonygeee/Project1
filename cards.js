@@ -34,11 +34,13 @@ $( "#foodButton" ).click(function() {
   displayEventbriteMusic();
  });
 
-$("#cityName").append(city);
+
 
 //-----------------------------Global Variable-----------------------------------
 
 var city = sessionStorage.getItem("userInput");
+
+$("#cityName").append(city);
 
 //--------------------------------functions-------------------------------------
 
@@ -289,5 +291,3 @@ function displayEventbriteJobs() {
 //   database.ref().on("value", function(snapshot) {
 //     foodCounter = snapshot.val().foodCount;
 //   }); 
-
-
