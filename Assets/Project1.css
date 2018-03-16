@@ -448,7 +448,7 @@ button {
   font-size: 36px;
   font-family: "Oswald", sans-serif;
   font-weight: lighter;
-  color: grey;
+  color: #2adddd;
 }
 
 .food-img,
@@ -456,7 +456,8 @@ button {
 .music-img,
 .job-img,
 .zillow-img {
-  max-width: 170px;
+  width: 100px;
+  height: 100px;
   padding: 10px;
 }
 
